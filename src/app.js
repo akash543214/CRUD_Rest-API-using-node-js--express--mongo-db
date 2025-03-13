@@ -23,14 +23,7 @@ app.use(cookieParser())
 //routes import
 import userRouter from './routes/users.routes.js'
 
-// Add this before any other routes
-app.get('/direct-test', (req, res) => {
-    res.header('Access-Control-Allow-Origin', 'https://cru-dfrotnend.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.status(200).json({ message: "Direct test successful" });
-  });
+
 // Add this before your routes declaration
 app.get("/api/test", (req, res) => {
     res.json({ message: "API is working" });
@@ -38,6 +31,7 @@ app.get("/api/test", (req, res) => {
 
 //routes declaration
 app.use("/api", userRouter)
+
 
 // http://localhost:8000/api/v1/users/register
 
