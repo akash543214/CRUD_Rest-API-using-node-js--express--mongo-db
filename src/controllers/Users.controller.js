@@ -15,13 +15,14 @@ const getUsers = async(req,res)=>{
 }
 
 const createUsers = async(req,res)=>{
-    const {name,email,password } =  req.body
+    const {name,email,password,age } =  req.body
     try
    { 
     const user = await User.create({
         name: name,
         email: email,
-        password: password
+        password: password,
+        age: age
     })
 
     res.status(201).json(user);
@@ -36,7 +37,7 @@ const createUsers = async(req,res)=>{
 
 const updateUsers = async(req,res)=>{
 
-    const {name,email,password } =  req.body
+    const {name,email,password,age } =  req.body
 
     try{
     const user = await User.updateOne(
@@ -45,7 +46,8 @@ const updateUsers = async(req,res)=>{
         $set: {
           name: name,
           email: email,
-          password: password
+          password: password,
+          age:age
         },
       }
       
